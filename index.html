@@ -1,634 +1,1026 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>南北專業拖救｜24小時道路救援｜高雄・屏東・台南</title>
-
-  <meta name="description" content="南北專業拖救提供24小時道路救援服務，主要服務高雄市各區，屏東、台南為輔。提供拖吊、電瓶接電、輪胎故障、事故救援、緊急送油等服務。服務專線：0902-000-027。">
-
-  <meta name="keywords" content="高雄道路救援,高雄拖吊,仁武道路救援,苓雅道路救援,鼓山道路救援,大社道路救援,鳥松道路救援,屏東道路救援,台南道路救援,24小時拖吊,電瓶接電,事故拖吊">
-
-  <meta name="robots" content="index, follow">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-      background: #f5f5f5;
-      color: #222;
-      line-height: 1.7;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    /* 頂部導覽 */
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      background: #111;
-      color: #fff;
-      padding: 12px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .topbar .logo {
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .topbar .phone {
-      color: #ffd000;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    /* 主視覺 */
-    .hero {
-      min-height: 78vh;
-      background:
-        linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)),
-        url('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      padding: 50px 20px;
-    }
-
-    .hero-content {
-      max-width: 850px;
-    }
-
-    .hero h1 {
-      font-size: 56px;
-      margin-bottom: 10px;
-      letter-spacing: 2px;
-    }
-
-    .hero h2 {
-      font-size: 28px;
-      color: #ffd000;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 12px;
-    }
-
-    .hero-phone {
-      font-size: 38px;
-      font-weight: bold;
-      margin: 25px 0;
-      color: #fff;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 16px 28px;
-      border-radius: 8px;
-      font-size: 20px;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-call {
-      background: #ffd000;
-      color: #111;
-    }
-
-    .btn-line {
-      background: #06c755;
-      color: #fff;
-    }
-
-    /* 共用區塊 */
-    section {
-      padding: 65px 20px;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 36px;
-      margin-bottom: 12px;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: #666;
-      margin-bottom: 40px;
-      font-size: 18px;
-    }
-
-    /* 關於我們 */
-    .about {
-      background: #fff;
-    }
-
-    .about-box {
-      max-width: 850px;
-      margin: auto;
-      font-size: 19px;
-      text-align: center;
-    }
-
-    /* 服務項目 */
-    .services {
-      background: #f1f1f1;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .service-card {
-      background: #fff;
-      padding: 30px 20px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-    }
-
-    .service-icon {
-      font-size: 42px;
-      margin-bottom: 12px;
-    }
-
-    .service-card h3 {
-      font-size: 23px;
-      margin-bottom: 8px;
-    }
-
-    .service-card p {
-      color: #666;
-    }
-
-    /* 服務區域 */
-    .areas {
-      background: #fff;
-    }
-
-    .area-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-
-    .area-item {
-      background: #111;
-      color: #fff;
-      padding: 14px;
-      border-radius: 8px;
-      text-align: center;
-      font-weight: bold;
-    }
-
-    /* 救援流程 */
-    .steps {
-      background: #111;
-      color: #fff;
-    }
-
-    .steps .section-subtitle {
-      color: #ccc;
-    }
-
-    .step-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .step-card {
-      background: #1e1e1e;
-      padding: 28px 18px;
-      border-radius: 12px;
-      text-align: center;
-    }
-
-    .step-number {
-      width: 50px;
-      height: 50px;
-      margin: 0 auto 15px;
-      border-radius: 50%;
-      background: #ffd000;
-      color: #111;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 22px;
-    }
-
-    /* 行動呼籲 */
-    .cta {
-      background: #ffd000;
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-size: 38px;
-      margin-bottom: 15px;
-    }
-
-    .cta p {
-      font-size: 20px;
-      margin-bottom: 20px;
-    }
-
-    .cta-phone {
-      font-size: 42px;
-      font-weight: bold;
-      color: #111;
-      display: block;
-      margin-bottom: 18px;
-    }
-
-    .cta .btn-call {
-      background: #111;
-      color: #fff;
-    }
-
-    /* 頁尾 */
-    footer {
-      background: #080808;
-      color: #fff;
-      text-align: center;
-      padding: 35px 20px 100px;
-    }
-
-    footer h3 {
-      font-size: 24px;
-      margin-bottom: 8px;
-    }
-
-    footer p {
-      color: #bbb;
-      margin: 5px 0;
-    }
-
-    /* 手機底部按鈕 */
-    .mobile-bottom {
-      display: none;
-    }
-
-    @media (max-width: 900px) {
-      .service-grid,
-      .step-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .area-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-
-      .topbar {
-        padding: 10px 14px;
-      }
-
-      .topbar .logo {
-        font-size: 17px;
-      }
-
-      .topbar .phone {
-        font-size: 15px;
-      }
-
-      .hero {
-        min-height: 72vh;
-        padding: 45px 16px;
-      }
-
-      .hero h1 {
-        font-size: 38px;
-      }
-
-      .hero h2 {
-        font-size: 22px;
-      }
-
-      .hero p {
-        font-size: 17px;
-      }
-
-      .hero-phone {
-        font-size: 31px;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 330px;
-      }
-
-      .section-title {
-        font-size: 30px;
-      }
-
-      .service-grid,
-      .step-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .area-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .mobile-bottom {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        z-index: 9999;
-      }
-
-      .mobile-bottom a {
-        text-align: center;
-        padding: 16px 6px;
-        font-size: 18px;
-        font-weight: bold;
-      }
-
-      .mobile-call {
-        background: #ffd000;
-        color: #111;
-      }
-
-      .mobile-line {
-        background: #06c755;
-        color: #fff;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>南北專業拖救｜高雄24小時道路救援・拖吊</title>
+
+<meta name="description"
+content="南北專業拖救提供高雄24小時道路救援、汽車拖吊、事故救援、電瓶接電、輪胎故障及車輛拖運。服務高雄仁武、鳥松、大社、苓雅、鼓山、鳳山、三民、左營、楠梓、前鎮，並支援屏東、台南。服務專線0902-000-027。">
+
+<meta name="robots" content="index,follow">
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:"Microsoft JhengHei",Arial,sans-serif;
+background:#f5f5f5;
+color:#222;
+line-height:1.7;
+}
+
+a{
+text-decoration:none;
+}
+
+/* 頂部 */
+
+.topbar{
+position:sticky;
+top:0;
+z-index:9999;
+background:#111;
+color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 5%;
+box-shadow:0 2px 10px rgba(0,0,0,.3);
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+}
+
+.top-phone{
+color:#ffd000;
+font-size:19px;
+font-weight:bold;
+}
+
+/* 首頁主視覺 */
+
+.hero{
+min-height:82vh;
+
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.76)),
+url("tow-06.jpg");
+
+background-position:center;
+background-size:cover;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+color:white;
+
+padding:50px 20px;
+}
+
+.hero-content{
+max-width:900px;
+}
+
+.hero h1{
+font-size:58px;
+font-weight:900;
+letter-spacing:3px;
+margin-bottom:5px;
+}
+
+.hero h2{
+font-size:30px;
+color:#ffd000;
+margin-bottom:18px;
+}
+
+.hero-text{
+font-size:21px;
+margin-bottom:8px;
+}
+
+.hero-phone{
+font-size:42px;
+font-weight:bold;
+margin:22px 0;
+}
+
+.buttons{
+display:flex;
+gap:15px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.btn{
+display:inline-block;
+padding:16px 27px;
+border-radius:8px;
+font-size:20px;
+font-weight:bold;
+transition:.2s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+.call{
+background:#ffd000;
+color:#111;
+}
+
+.line{
+background:#06c755;
+color:white;
+}
+
+/* 共用 */
+
+section{
+padding:65px 20px;
+}
+
+.container{
+max-width:1150px;
+margin:auto;
+}
+
+.title{
+font-size:36px;
+text-align:center;
+margin-bottom:8px;
+}
+
+.subtitle{
+text-align:center;
+color:#666;
+font-size:18px;
+margin-bottom:38px;
+}
+
+/* 信任區 */
+
+.trust{
+background:white;
+}
+
+.trust-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+}
+
+.trust-item{
+background:#111;
+color:white;
+border-radius:10px;
+padding:24px 10px;
+text-align:center;
+font-weight:bold;
+font-size:19px;
+}
+
+.trust-item span{
+display:block;
+font-size:35px;
+margin-bottom:8px;
+}
+
+/* 服務 */
+
+.services{
+background:#eee;
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.card{
+background:white;
+padding:28px 20px;
+border-radius:12px;
+box-shadow:0 3px 15px rgba(0,0,0,.08);
+text-align:center;
+}
+
+.card-icon{
+font-size:40px;
+margin-bottom:8px;
+}
+
+.card h3{
+font-size:23px;
+margin-bottom:7px;
+}
+
+.card p{
+color:#666;
+}
+
+/* 大型事故 */
+
+.special{
+background:#111;
+color:white;
+}
+
+.special-content{
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:35px;
+}
+
+.special img{
+width:100%;
+border-radius:13px;
+max-height:500px;
+object-fit:cover;
+}
+
+.special h2{
+font-size:37px;
+color:#ffd000;
+margin-bottom:15px;
+}
+
+.special p{
+font-size:19px;
+color:#ddd;
+margin-bottom:12px;
+}
+
+/* 夜間 */
+
+.night{
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
+url("tow-04.jpg");
+
+background-size:cover;
+background-position:center;
+
+color:white;
+text-align:center;
+
+padding:100px 20px;
+}
+
+.night h2{
+font-size:43px;
+color:#ffd000;
+}
+
+.night p{
+font-size:21px;
+margin:12px 0 25px;
+}
+
+/* 案例照片 */
+
+.gallery{
+background:white;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
+
+.gallery-grid img{
+width:100%;
+height:270px;
+object-fit:cover;
+border-radius:8px;
+cursor:pointer;
+transition:.25s;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.02);
+}
+
+/* 圖片放大 */
+
+.lightbox{
+display:none;
+position:fixed;
+z-index:10000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.9);
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+
+.lightbox img{
+max-width:95%;
+max-height:90%;
+}
+
+.lightbox-close{
+position:absolute;
+top:15px;
+right:25px;
+color:white;
+font-size:45px;
+cursor:pointer;
+}
+
+/* 服務區域 */
+
+.areas{
+background:#eee;
+}
+
+.area-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+}
+
+.area{
+background:#222;
+color:white;
+text-align:center;
+padding:14px 5px;
+border-radius:7px;
+font-weight:bold;
+}
+
+/* 救援流程 */
+
+.process{
+background:white;
+}
+
+.process-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+.process-card{
+text-align:center;
+}
+
+.number{
+background:#ffd000;
+width:55px;
+height:55px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:0 auto 12px;
+font-size:24px;
+font-weight:bold;
+}
+
+/* CTA */
+
+.cta{
+background:#ffd000;
+text-align:center;
+}
+
+.cta h2{
+font-size:40px;
+}
+
+.cta-phone{
+font-size:43px;
+font-weight:bold;
+display:block;
+color:#111;
+margin:13px;
+}
+
+/* footer */
+
+footer{
+background:#080808;
+color:white;
+text-align:center;
+padding:38px 20px 95px;
+}
+
+footer h3{
+font-size:25px;
+}
+
+footer p{
+color:#bbb;
+}
+
+/* 手機底部 */
+
+.mobile-contact{
+display:none;
+}
+
+/* 手機版 */
+
+@media(max-width:800px){
+
+.hero h1{
+font-size:40px;
+}
+
+.hero h2{
+font-size:23px;
+}
+
+.hero-phone{
+font-size:32px;
+}
+
+.service-grid{
+grid-template-columns:1fr;
+}
+
+.trust-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.special-content{
+grid-template-columns:1fr;
+}
+
+.gallery-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.gallery-grid img{
+height:190px;
+}
+
+.area-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.process-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.mobile-contact{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+display:grid;
+grid-template-columns:1fr 1fr;
+z-index:9999;
+}
+
+.mobile-contact a{
+padding:16px 5px;
+text-align:center;
+font-size:18px;
+font-weight:bold;
+}
+
+.mobile-call{
+background:#ffd000;
+color:#111;
+}
+
+.mobile-line{
+background:#06c755;
+color:white;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <!-- 頂部 -->
-  <div class="topbar">
-    <div class="logo">南北專業拖救</div>
-    <a class="phone" href="tel:0902000027">☎ 0902-000-027</a>
-  </div>
 
-  <!-- 首頁主視覺 -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>南北專業拖救</h1>
-      <h2>24小時道路救援</h2>
+<!-- 上方導覽 -->
 
-      <p>高雄市各區快速支援｜屏東・台南為輔</p>
-      <p>汽車拋錨｜事故拖吊｜電瓶接電｜輪胎故障｜緊急送油</p>
+<div class="topbar">
 
-      <div class="hero-phone">0902-000-027</div>
+<div class="logo">
+南北專業拖救
+</div>
 
-      <div class="hero-buttons">
-        <a class="btn btn-call" href="tel:0902000027">☎ 立即撥打救援</a>
+<a href="tel:0902000027" class="top-phone">
+☎ 0902-000-027
+</a>
 
-        <a class="btn btn-line"
-           href="https://line.me/ti/p/JSz-z_8N7D"
-           target="_blank">
-          LINE 立即求援
-        </a>
-      </div>
-    </div>
-  </header>
+</div>
 
-  <!-- 關於我們 -->
-  <section class="about">
-    <div class="container">
-      <h2 class="section-title">南北專業拖救</h2>
-      <p class="section-subtitle">專業、快速、即時支援</p>
 
-      <div class="about-box">
-        <p>
-          南北專業拖救提供台灣南部地區道路救援服務，
-          主要服務高雄市各行政區，並支援屏東及台南地區。
-        </p>
+<!-- 首頁 -->
 
-        <br>
+<header class="hero">
 
-        <p>
-          不論遇到汽車拋錨、電瓶沒電、輪胎故障、
-          車輛無法發動、事故拖吊或臨時需要車輛拖運，
-          都可以直接來電或透過 LINE 聯絡我們。
-        </p>
+<div class="hero-content">
 
-        <br>
+<h1>南北專業拖救</h1>
 
-        <p>
-          道路救援有時分秒必爭，
-          我們會在確認車輛位置及現場狀況後，盡快安排救援。
-        </p>
-      </div>
-    </div>
-  </section>
+<h2>24小時道路救援・專業拖吊</h2>
 
-  <!-- 服務項目 -->
-  <section class="services">
-    <div class="container">
-      <h2 class="section-title">道路救援服務項目</h2>
-      <p class="section-subtitle">遇到車輛狀況，直接聯絡我們</p>
+<p class="hero-text">
+高雄市各區快速支援｜屏東・台南為輔
+</p>
 
-      <div class="service-grid">
+<p class="hero-text">
+事故拖吊・拋錨救援・車輛拖運・吊掛救援
+</p>
 
-        <div class="service-card">
-          <div class="service-icon">🚗</div>
-          <h3>道路救援</h3>
-          <p>汽車拋錨、無法發動及臨時故障協助。</p>
-        </div>
+<div class="hero-phone">
+0902-000-027
+</div>
 
-        <div class="service-card">
-          <div class="service-icon">🚛</div>
-          <h3>汽車拖吊</h3>
-          <p>市區拖吊、事故拖運及跨區車輛運送。</p>
-        </div>
+<div class="buttons">
 
-        <div class="service-card">
-          <div class="service-icon">🔋</div>
-          <h3>電瓶接電</h3>
-          <p>電瓶沒電、車輛無法啟動，協助接電處理。</p>
-        </div>
+<a href="tel:0902000027" class="btn call">
+☎ 立即撥打救援
+</a>
 
-        <div class="service-card">
-          <div class="service-icon">🛞</div>
-          <h3>輪胎故障</h3>
-          <p>爆胎、輪胎異常及備胎更換協助。</p>
-        </div>
+<a
+href="https://line.me/ti/p/JSz-z_8N7D"
+target="_blank"
+class="btn line">
 
-        <div class="service-card">
-          <div class="service-icon">⛽</div>
-          <h3>緊急送油</h3>
-          <p>車輛臨時沒油，協助緊急送油。</p>
-        </div>
+LINE 立即求援
 
-        <div class="service-card">
-          <div class="service-icon">⚠️</div>
-          <h3>事故拖吊</h3>
-          <p>事故車輛無法行駛，協助安全拖離現場。</p>
-        </div>
+</a>
 
-      </div>
-    </div>
-  </section>
+</div>
 
-  <!-- 服務區域 -->
-  <section class="areas">
-    <div class="container">
-      <h2 class="section-title">服務區域</h2>
-      <p class="section-subtitle">
-        主要服務高雄市各區｜屏東、台南為輔
-      </p>
+</div>
 
-      <div class="area-grid">
+</header>
 
-        <div class="area-item">高雄市道路救援</div>
-        <div class="area-item">仁武區道路救援</div>
-        <div class="area-item">苓雅區道路救援</div>
-        <div class="area-item">鼓山區道路救援</div>
 
-        <div class="area-item">大社區道路救援</div>
-        <div class="area-item">鳥松區道路救援</div>
-        <div class="area-item">鳳山區道路救援</div>
-        <div class="area-item">三民區道路救援</div>
+<!-- 優勢 -->
 
-        <div class="area-item">左營區道路救援</div>
-        <div class="area-item">楠梓區道路救援</div>
-        <div class="area-item">前鎮區道路救援</div>
-        <div class="area-item">屏東道路救援</div>
+<section class="trust">
 
-        <div class="area-item">台南道路救援</div>
+<div class="container">
 
-      </div>
-    </div>
-  </section>
+<h2 class="title">需要救援，直接找我們</h2>
 
-  <!-- 求援流程 -->
-  <section class="steps">
-    <div class="container">
-      <h2 class="section-title">道路救援流程</h2>
-      <p class="section-subtitle">簡單 4 步驟快速處理</p>
+<p class="subtitle">
+真實道路救援經驗・大小車輛皆可諮詢
+</p>
 
-      <div class="step-grid">
+<div class="trust-grid">
 
-        <div class="step-card">
-          <div class="step-number">1</div>
-          <h3>來電或 LINE</h3>
-          <p>告訴我們您需要道路救援。</p>
-        </div>
+<div class="trust-item">
+<span>🚨</span>
+緊急道路救援
+</div>
 
-        <div class="step-card">
-          <div class="step-number">2</div>
-          <h3>提供位置</h3>
-          <p>提供目前所在地點或傳送 LINE 定位。</p>
-        </div>
+<div class="trust-item">
+<span>🚛</span>
+專業拖吊
+</div>
 
-        <div class="step-card">
-          <div class="step-number">3</div>
-          <h3>說明車況</h3>
-          <p>簡單說明車種與目前故障狀況。</p>
-        </div>
+<div class="trust-item">
+<span>🌙</span>
+夜間救援
+</div>
 
-        <div class="step-card">
-          <div class="step-number">4</div>
-          <h3>安排救援</h3>
-          <p>確認資訊後，盡快安排車輛前往。</p>
-        </div>
+<div class="trust-item">
+<span>📍</span>
+南部地區支援
+</div>
 
-      </div>
-    </div>
-  </section>
+</div>
 
-  <!-- 最後聯絡區 -->
-  <section class="cta">
-    <div class="container">
-      <h2>車子顧路了？直接聯絡我們</h2>
+</div>
 
-      <p>
-        高雄道路救援・拖吊・電瓶接電・輪胎故障・事故拖運
-      </p>
+</section>
 
-      <a class="cta-phone" href="tel:0902000027">
-        0902-000-027
-      </a>
 
-      <div class="hero-buttons">
+<!-- 服務 -->
 
-        <a class="btn btn-call" href="tel:0902000027">
-          ☎ 立即撥打
-        </a>
+<section class="services">
 
-        <a class="btn btn-line"
-           href="https://line.me/ti/p/JSz-z_8N7D"
-           target="_blank">
-          LINE 立即求援
-        </a>
+<div class="container">
 
-      </div>
-    </div>
-  </section>
+<h2 class="title">道路救援服務</h2>
 
-  <!-- 頁尾 -->
-  <footer>
-    <h3>南北專業拖救</h3>
-    <p>24小時道路救援</p>
-    <p>高雄市各區｜屏東｜台南</p>
-    <p>服務專線：0902-000-027</p>
-    <p>© 南北專業拖救 All Rights Reserved.</p>
-  </footer>
+<p class="subtitle">
+依現場車況安排適合的救援方式
+</p>
 
-  <!-- 手機底部固定按鈕 -->
-  <div class="mobile-bottom">
-    <a class="mobile-call" href="tel:0902000027">
-      ☎ 立即撥打
-    </a>
+<div class="service-grid">
 
-    <a class="mobile-line"
-       href="https://line.me/ti/p/JSz-z_8N7D"
-       target="_blank">
-      LINE 求援
-    </a>
-  </div>
+<div class="card">
+<div class="card-icon">🚗</div>
+<h3>汽車道路救援</h3>
+<p>
+車輛拋錨、無法行駛、臨時故障等道路救援服務。
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">🚛</div>
+<h3>平板拖吊</h3>
+<p>
+一般轎車、休旅車、廂型車及特殊車輛拖運。
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">🏗️</div>
+<h3>吊掛救援</h3>
+<p>
+事故翻覆、落溝及特殊事故現場吊掛處理。
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">⚠️</div>
+<h3>事故車拖吊</h3>
+<p>
+碰撞事故、車體損壞及無法正常行駛車輛拖運。
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">🚚</div>
+<h3>大型車救援</h3>
+<p>
+貨車、巴士及其他大型車輛可來電詢問。
+</p>
+</div>
+
+<div class="card">
+<div class="card-icon">🌙</div>
+<h3>夜間道路救援</h3>
+<p>
+夜間遇到車輛問題，也可電話或 LINE 聯絡。
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 特殊事故 -->
+
+<section class="special">
+
+<div class="container">
+
+<div class="special-content">
+
+<img src="tow-02.jpg"
+alt="高雄事故翻覆車輛吊掛道路救援">
+
+<div>
+
+<h2>事故・翻覆・吊掛救援</h2>
+
+<p>
+一般拖車無法處理的特殊事故現場，
+我們可依現場狀況安排吊掛與拖救作業。
+</p>
+
+<p>
+包括翻覆車輛、事故車、落溝車輛以及無法正常拖行的車輛。
+</p>
+
+<br>
+
+<a href="tel:0902000027" class="btn call">
+立即聯絡 0902-000-027
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 夜間 -->
+
+<section class="night">
+
+<div class="container">
+
+<h2>夜間道路救援</h2>
+
+<p>
+深夜車輛故障、事故或無法行駛，可直接聯絡南北專業拖救。
+</p>
+
+<div class="buttons">
+
+<a href="tel:0902000027" class="btn call">
+☎ 電話求援
+</a>
+
+<a href="https://line.me/ti/p/JSz-z_8N7D"
+target="_blank"
+class="btn line">
+
+LINE 傳送位置
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 真實案例 -->
+
+<section class="gallery">
+
+<div class="container">
+
+<h2 class="title">真實道路救援案例</h2>
+
+<p class="subtitle">
+實際拖救作業照片
+</p>
+
+<div class="gallery-grid">
+
+<img src="tow-01.jpg"
+alt="事故車拖吊救援"
+onclick="openImage(this.src)">
+
+<img src="tow-02.jpg"
+alt="翻覆車吊掛救援"
+onclick="openImage(this.src)">
+
+<img src="tow-03.jpg"
+alt="大型巴士道路救援"
+onclick="openImage(this.src)">
+
+<img src="tow-04.jpg"
+alt="夜間道路救援"
+onclick="openImage(this.src)">
+
+<img src="tow-05.jpg"
+alt="高雄汽車平板拖吊"
+onclick="openImage(this.src)">
+
+<img src="tow-06.jpg"
+alt="汽車拖吊案例"
+onclick="openImage(this.src)">
+
+<img src="tow-07.jpg"
+alt="廂型車拖運"
+onclick="openImage(this.src)">
+
+<img src="tow-08.jpg"
+alt="一般轎車拖吊"
+onclick="openImage(this.src)">
+
+<img src="tow-09.jpg"
+alt="大型貨車事故救援"
+onclick="openImage(this.src)">
+
+<img src="tow-10.jpg"
+alt="事故車道路救援"
+onclick="openImage(this.src)">
+
+<img src="tow-11.jpg"
+alt="高雄道路拖救"
+onclick="openImage(this.src)">
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 服務地區 -->
+
+<section class="areas">
+
+<div class="container">
+
+<h2 class="title">高雄道路救援服務區域</h2>
+
+<p class="subtitle">
+主要服務高雄市各區，屏東・台南可來電詢問
+</p>
+
+<div class="area-grid">
+
+<div class="area">高雄道路救援</div>
+<div class="area">仁武道路救援</div>
+<div class="area">鳥松道路救援</div>
+<div class="area">大社道路救援</div>
+
+<div class="area">苓雅道路救援</div>
+<div class="area">鼓山道路救援</div>
+<div class="area">鳳山道路救援</div>
+<div class="area">三民道路救援</div>
+
+<div class="area">左營道路救援</div>
+<div class="area">楠梓道路救援</div>
+<div class="area">前鎮道路救援</div>
+<div class="area">屏東道路救援</div>
+
+<div class="area">台南道路救援</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 流程 -->
+
+<section class="process">
+
+<div class="container">
+
+<h2 class="title">道路救援流程</h2>
+
+<p class="subtitle">
+打電話或 LINE 即可
+</p>
+
+<div class="process-grid">
+
+<div class="process-card">
+<div class="number">1</div>
+<h3>聯絡我們</h3>
+<p>撥打電話或使用 LINE。</p>
+</div>
+
+<div class="process-card">
+<div class="number">2</div>
+<h3>傳送位置</h3>
+<p>告知地址或傳送 LINE 定位。</p>
+</div>
+
+<div class="process-card">
+<div class="number">3</div>
+<h3>說明車況</h3>
+<p>告訴我們車種及現場狀況。</p>
+</div>
+
+<div class="process-card">
+<div class="number">4</div>
+<h3>安排救援</h3>
+<p>確認資訊後安排適合的救援方式。</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 電話 CTA -->
+
+<section class="cta">
+
+<div class="container">
+
+<h2>車輛需要救援？</h2>
+
+<p>
+直接聯絡南北專業拖救
+</p>
+
+<a href="tel:0902000027"
+class="cta-phone">
+
+0902-000-027
+
+</a>
+
+<div class="buttons">
+
+<a href="tel:0902000027"
+class="btn"
+style="background:#111;color:white;">
+
+☎ 立即撥打
+
+</a>
+
+<a
+href="https://line.me/ti/p/JSz-z_8N7D"
+target="_blank"
+class="btn line">
+
+LINE 立即求援
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- Footer -->
+
+<footer>
+
+<h3>南北專業拖救</h3>
+
+<p>
+高雄道路救援・汽車拖吊・事故救援
+</p>
+
+<p>
+高雄｜屏東｜台南
+</p>
+
+<p>
+服務專線：0902-000-027
+</p>
+
+<p>
+© 南北專業拖救 All Rights Reserved
+</p>
+
+</footer>
+
+
+<!-- 手機固定聯絡 -->
+
+<div class="mobile-contact">
+
+<a href="tel:0902000027"
+class="mobile-call">
+☎ 立即撥打
+</a>
+
+<a href="https://line.me/ti/p/JSz-z_8N7D"
+target="_blank"
+class="mobile-line">
+LINE 求援
+</a>
+
+</div>
+
+
+<!-- 圖片放大 -->
+
+<div id="lightbox"
+class="lightbox"
+onclick="closeImage()">
+
+<span class="lightbox-close">
+×
+</span>
+
+<img id="lightbox-img">
+
+</div>
+
+
+<script>
+
+function openImage(src){
+
+document.getElementById("lightbox").style.display="flex";
+
+document.getElementById("lightbox-img").src=src;
+
+}
+
+function closeImage(){
+
+document.getElementById("lightbox").style.display="none";
+
+}
+
+</script>
+
 
 </body>
 </html>
